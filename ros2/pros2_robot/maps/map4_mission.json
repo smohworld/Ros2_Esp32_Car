@@ -1,0 +1,111 @@
+{
+  "parking": [
+    {
+      "name": "parking1",
+      "x": 4.274,
+      "y": -3.973,
+      "yaw": 1.9875,
+      "facing": "back",
+      "gap": 0.15,
+      "line": [
+        [
+          4.292,
+          -4.643
+        ],
+        [
+          4.758,
+          -4.437
+        ]
+      ],
+      "normal": [
+        -0.4047,
+        0.9144
+      ],
+      "result": {
+        "wall_mid": [
+          4.493,
+          -4.517
+        ],
+        "wall_normal": [
+          -0.3523,
+          0.9359
+        ],
+        "wall_len": 0.574,
+        "park_pose": [
+          4.398,
+          -4.264,
+          1.9308
+        ],
+        "time": "2026-11-01 17:13:41"
+      }
+    }
+  ],
+  "map": "/root/pros2_ws/install/pros2_robot/share/pros2_robot/maps/map4.yaml",
+  "places": [
+    {
+      "name": "start_position",
+      "x": 4.804,
+      "y": -2.172,
+      "yaw": -2.3562,
+      "radius": 0.5
+    },
+    {
+      "name": "toy_goal",
+      "x": -0.089,
+      "y": 1.444,
+      "yaw": -1.212,
+      "radius": 1.0
+    },
+    {
+      "name": "move_to_parking",
+      "x": 4.113,
+      "y": -3.367,
+      "yaw": -1.2015,
+      "radius": 0.5
+    },
+    {
+      "name": "find_toy",
+      "x": 2.07,
+      "y": -2.844,
+      "yaw": 2.0152,
+      "radius": 0.5
+    }
+  ],
+  "mission": [
+    {
+      "type": "localize",
+      "turns": 4.0
+    },
+    {
+      "type": "nav",
+      "target": "move_to_parking"
+    },
+    {
+      "type": "park",
+      "target": "parking1",
+      "wait": 2.0
+    },
+    {
+      "type": "nav",
+      "target": "find_toy"
+    },
+    {
+      "type": "search_toy",
+      "turns": 2.0
+    },
+    {
+      "type": "follow",
+      "target": "toy_goal",
+      "timeout": 60.0
+    },
+    {
+      "type": "nav",
+      "target": "parking1"
+    },
+    {
+      "type": "park",
+      "target": "parking1",
+      "wait": 3.0
+    }
+  ]
+}

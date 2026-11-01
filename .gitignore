@@ -1,0 +1,19 @@
+# Secrets (Wi-Fi 정보)
+esp32/**/secrets.h
+
+# Python
+__pycache__/
+*.pyc
+
+# ROS 2 colcon
+build/
+install/
+log/
+
+# YOLO
+ros2/pros2_robot/yolo/venv/
+ros2/pros2_robot/yolo/yolov8n.pt
+
+# 결과 영상 (용량 제한)
+결과영상/
+*.mp4
